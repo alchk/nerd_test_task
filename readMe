@@ -1,0 +1,64 @@
+
+POST:http://localhost:8080/validateRoom
+
+requestBody examples:
+    {
+        "pointList": [
+            {
+                "x": 1,
+                "y": 1
+            },
+            {
+                "x": 1,
+                "y": 2
+            },
+            {
+                "x": 0,
+                "y": 2
+            },
+            {
+                "x": 0,
+                "y": 3
+            },
+            {
+                "x": 2,
+                "y": 3
+            },
+            {
+                "x": 2,
+                "y": 1
+            }
+        ]
+    }
+
+    Response: Legal room
+
+
+
+     {
+            "pointList": [
+                {
+                    "x": 1,
+                    "y": 1
+                },
+                {
+                    "x": 1,
+                    "y": 2
+                },
+                {
+                    "x": 0,
+                    "y": 2
+                },
+                {
+                    "x": 0,
+                    "y": 1
+                }
+            ]
+        }
+
+        ResponseBody: infinite area
+
+
+
+To get all previously added room:
+    GET: http://localhost:8080/getAllRooms

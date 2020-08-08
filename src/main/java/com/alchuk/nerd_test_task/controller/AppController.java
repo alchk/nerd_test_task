@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -35,7 +36,7 @@ public class AppController {
 
 
 
-    @ExceptionHandler({InvalidInputException.class, MethodArgumentNotValidException.class})
+    @ExceptionHandler({InvalidInputException.class, MethodArgumentNotValidException.class, HttpMessageNotReadableException.class})
     public ResponseEntity<String> handleException(Exception e){
 
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

@@ -1,6 +1,10 @@
 package com.alchuk.nerd_test_task.model;
 
+import org.hibernate.annotations.DiscriminatorFormula;
+
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
@@ -11,10 +15,13 @@ public class Point {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long pointId;
 
+    @Digits(integer = 4, fraction = 0, message = "Coordinates must be integers")
+    @NotBlank
     @Column(name = "x_coord")
     private int x;
 
-
+    @Digits(integer = 4, fraction = 0, message = "Coordinates must be integers")
+    @NotBlank()
     @Column(name = "y_coord")
     private int y;
 

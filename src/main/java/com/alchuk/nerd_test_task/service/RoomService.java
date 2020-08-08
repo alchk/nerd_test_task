@@ -11,7 +11,6 @@ public interface RoomService {
 
     void addRoom(Room room);
 
-    Room createRoom(List<Point> pointList);
 
     List<Room> getAllRooms();
 }

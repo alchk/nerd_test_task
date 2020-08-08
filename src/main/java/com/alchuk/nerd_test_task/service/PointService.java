@@ -9,6 +9,6 @@ public interface PointService {
 
     void addPoint(Point point);
 
-    Point createPoint(String x, String y);
+
 
 }

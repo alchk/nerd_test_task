@@ -21,12 +21,7 @@ public class RoomServiceImpl implements RoomService {
 
     }
 
-    @Override
-    public Room createRoom(List<Point> pointList) {
-        Room room = new Room();
-        room.setPointList(pointList);
-        return room;
-    }
+
 
     @Override
     public List<Room> getAllRooms() {

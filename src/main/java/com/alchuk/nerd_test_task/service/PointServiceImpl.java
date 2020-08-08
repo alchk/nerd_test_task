@@ -18,18 +18,5 @@ public class PointServiceImpl implements PointService {
 
     }
 
-    @Override
-    public Point createPoint(String x, String y) {
-        int x1 = Integer.parseInt(x);
-        int y1 = Integer.parseInt(y);
 
-        Point point = new Point();
-
-        point.setX(x1);
-
-        point.setY(y1);
-
-
-        return point;
-    }
 }

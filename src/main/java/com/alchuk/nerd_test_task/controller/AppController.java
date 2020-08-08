@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +35,7 @@ public class AppController {
 
 
 
-    @ExceptionHandler({InvalidInputException.class})
+    @ExceptionHandler({InvalidInputException.class, MethodArgumentNotValidException.class})
     public ResponseEntity<String> handleException(Exception e){
 
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -46,7 +48,7 @@ public class AppController {
 
     @PostMapping("/validateRoom")
     @ResponseBody
-    public Room validateRoom(@RequestBody Room room){
+    public Room validateRoom(@Validated @RequestBody Room room){
         List<Point> pointList = room.getPointList();
         if(pointList.size() < 4){
             throw new InvalidInputException("Room must have at least 4 corners");
